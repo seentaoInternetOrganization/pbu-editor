@@ -17,8 +17,11 @@ class PBUEditor extends Component {
 
         window.UEDITOR_CONFIG = this.props.editorConfig;
         const baseUrl = this.props.editorConfig.UEDITOR_HOME_URL;
-        asyncLoad(urljoin(baseUrl, 'ueditor.all.min.js'))
-        .then(() => {
+        // asyncLoad(urljoin(baseUrl, 'ueditor.all.min.js'))
+        // .then(() => {
+        //     this.editor = window.UE.getEditor('container');
+        // })
+        asyncLoad(urljoin(baseUrl, 'ueditor.all.min.js'), () => {
             this.editor = window.UE.getEditor('container');
         })
     }
