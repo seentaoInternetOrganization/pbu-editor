@@ -1,0 +1,14 @@
+{
+  "entry": "src/index.js",
+  "disableCSSModules": true,
+  "extraBabelPlugins": [
+    "transform-runtime"
+  ],
+  "proxy": {
+    "/editor": {
+      "target": "https://pbu.oss-cn-beijing.aliyuncs.com/webapps/pbu_editor/",
+      "changeOrigin": true,
+      "pathRewrite": { "^/editor" : "" }
+    }
+  }
+}
