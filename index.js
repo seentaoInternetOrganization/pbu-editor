@@ -1,1 +1,2 @@
-export { default } from './src/editor';
+module.exports = require('./lib/editor');
+exports.default = require('./lib/editor');

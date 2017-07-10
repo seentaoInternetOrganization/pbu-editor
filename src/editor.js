@@ -50,8 +50,8 @@ PBUEditor.propTypes = {
 PBUEditor.defaultProps = {
     editorConfig: {
         //为编辑器实例添加一个路径，这个不能被注释
-        // UEDITOR_HOME_URL: 'https://pbu.oss-cn-beijing.aliyuncs.com/webapps/pbu_editor/',
-        UEDITOR_HOME_URL: '/editor/',
+        UEDITOR_HOME_URL: 'https://pbu.oss-cn-beijing.aliyuncs.com/webapps/pbu_editor/',
+        // UEDITOR_HOME_URL: '/editor/',
 
         // 服务器统一请求接口路径
         serverUrl: "upload",
