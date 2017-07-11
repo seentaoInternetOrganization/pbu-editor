@@ -13,7 +13,7 @@
     "react",
     "react-component"
   ],
-  "author": "wyvernnot",
+  "author": "Chenzhyc",
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.5.10",
