@@ -2,28 +2,30 @@
  * @author Chenzhyc
  * @description 异步加载script tag
  */
+import "babel-polyfill";
 
-export default function asyncLoad(url, callback) {
-    // return new Promise(function(resolve, reject) {
-    const oScript = document.createElement('script');
-    oScript.type = 'text/javascript';
-    oScript.async = true;
-    oScript.src = url;
+export default function asyncLoad(url) {
+    console.log('load url = ', url);
+    return new Promise(function(resolve, reject) {
+        const oScript = document.createElement('script');
+        oScript.type = 'text/javascript';
+        oScript.async = true;
+        oScript.src = url;
 
-    const isIE = !-[1,];
+        const isIE = !-[1,];
 
-    if (isIE) {
-        oScript.onreadystatechange = function() {
-            if (this.readyState == 'loaded' || this.readyState == 'complete') {
-                callback();
+        if (isIE) {
+            oScript.onreadystatechange = function() {
+                if (this.readyState == 'loaded' || this.readyState == 'complete') {
+                    resolve();
+                }
+            }
+        }else {
+            oScript.onload = function() {
+                resolve();
             }
         }
-    }else {
-        oScript.onload = function() {
-            callback();
-        }
-    }
 
-    document.body.appendChild(oScript);
-    // });
+        document.body.appendChild(oScript);
+    });
 }

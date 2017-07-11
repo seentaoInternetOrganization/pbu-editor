@@ -17,13 +17,14 @@ class PBUEditor extends Component {
 
         window.UEDITOR_CONFIG = this.props.editorConfig;
         const baseUrl = this.props.editorConfig.UEDITOR_HOME_URL;
-        // asyncLoad(urljoin(baseUrl, 'ueditor.all.min.js'))
-        // .then(() => {
-        //     this.editor = window.UE.getEditor('container');
-        // })
-        asyncLoad(urljoin(baseUrl, 'ueditor.all.min.js'), () => {
+        asyncLoad(urljoin(baseUrl, 'ueditor.all.min.js'))
+        // .then(asyncLoad(urljoin(baseUrl, 'lang/zh-cn/zh-cn.js')))
+        .then(() => {
             this.editor = window.UE.getEditor('container');
         })
+        // asyncLoad(urljoin(baseUrl, 'ueditor.all.min.js'), () => {
+        //     this.editor = window.UE.getEditor('container');
+        // })
     }
 
     componentWillUnmount() {
@@ -34,7 +35,7 @@ class PBUEditor extends Component {
         return (
             <div style={this.props.style}>
                 <script id="container" name="content" type="text/plain">
-                    这里写你的初始化内容
+
                 </script>
             </div>
         )
@@ -47,10 +48,13 @@ PBUEditor.propTypes = {
     //配置信息
     editorConfig: PropTypes.object,
     //样式
-    style: PropTypes.object
+    style: PropTypes.object,
+    //占位文本
+    placeholder: PropTypes.string
 }
 
 PBUEditor.defaultProps = {
+    placeholder: '富文本编辑器',
     editorConfig: {
         //为编辑器实例添加一个路径，这个不能被注释
         UEDITOR_HOME_URL: 'https://pbu.oss-cn-beijing.aliyuncs.com/webapps/pbu_editor/',

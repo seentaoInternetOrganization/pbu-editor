@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: ['babel-polyfill', path.join(__dirname, 'example', 'src', 'index.jsx') ],
+  entry:  path.join(__dirname, 'example', 'src', 'index.jsx') ,
   output: {
     filename: 'bundle.js'
   },
