@@ -5,7 +5,6 @@
 import "babel-polyfill";
 
 export default function asyncLoad(url) {
-    console.log('load url = ', url);
     return new Promise(function(resolve, reject) {
         const oScript = document.createElement('script');
         oScript.type = 'text/javascript';
