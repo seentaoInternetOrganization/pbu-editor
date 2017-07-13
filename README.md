@@ -2,7 +2,7 @@
 > 封装了一下百度的ueditor
 #### 安装
 ```js
-npm i pbu_editor --save
+npm i pbu-editor --save
 ```
 
 #### 使用
