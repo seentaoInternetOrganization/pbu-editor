@@ -11,7 +11,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PBUEditor from '../../';
 
-ReactDOM.render(<PBUEditor />, mountedDom);
+ReactDOM.render(<PBUEditor id='container'/>, mountedDom);
 ```
 
 #### 参数接口说明
@@ -38,7 +38,11 @@ ReactDOM.render(<PBUEditor />, mountedDom);
     /**
      * 文本内容
      */
-    content: PropTypes.string
+    content: PropTypes.string,
+    /**
+     * 富文本节点id，必传
+     */
+    id: PropTypes.string.isRequired,
 
     /**
      * 设置编辑器内容
