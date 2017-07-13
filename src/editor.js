@@ -21,7 +21,7 @@ class PBUEditor extends Component {
         const baseUrl = this.props.editorConfig.UEDITOR_HOME_URL;
         asyncLoad(urljoin(baseUrl, 'ueditor.all.min.js'))
         .then(() => {
-            this.editor = window.UE.getEditor('container');
+            this.editor = window.UE.getEditor(this.props.id);
             this.editor.addListener('contentChange', () => {
                 this.props.onContentChange(this.editor.getContent())
             })
@@ -48,7 +48,7 @@ class PBUEditor extends Component {
     render(){
         return (
             <div style={this.props.style}>
-                <script id="container" name="content" type="text/plain" style={this.props.style}>
+                <script id={this.props.id} name="content" type="text/plain" style={this.props.style}>
                     {this.props.defaultContent}
                 </script>
             </div>
@@ -77,13 +77,18 @@ PBUEditor.propTypes = {
      * 文本发生变化时的回调
      * @param {string} content
      */
-    onContentChange: PropTypes.func
+    onContentChange: PropTypes.func,
+    /**
+     * 富文本节点id，必传
+     */
+    id: PropTypes.string.isRequired,
 }
 
 PBUEditor.defaultProps = {
     defaultContent: '富文本编辑器',
     onContentChange: (content) => {},
     style: { width:1024, height:300 },
+    id: 'container',
     editorConfig: {
         //为编辑器实例添加一个路径，这个不能被注释
         UEDITOR_HOME_URL: 'https://pbu.oss-cn-beijing.aliyuncs.com/webapps/pbu_editor/',
